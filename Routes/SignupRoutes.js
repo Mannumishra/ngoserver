@@ -5,8 +5,8 @@ const SignupRouter = express.Router();
 
 // Routes
 SignupRouter.post("/signup", createSignup);
-SignupRouter.get("/get-signups", verifyToken(["USER"]), getAllSignups);
-SignupRouter.get("/single-signup/:id", getSignupById);
+SignupRouter.get("/get-signups", getAllSignups);
+SignupRouter.get("/get-user-details/:id", getSignupById);
 SignupRouter.put("/update-signup/:id", updateSignupById);
 SignupRouter.delete("/delete-signup/:id", deleteSignupById);
 

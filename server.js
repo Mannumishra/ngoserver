@@ -6,6 +6,7 @@ const { connectDB } = require("./DB/DB")
 const cors = require("cors")
 const SignupRouter = require("./Routes/SignupRoutes")
 const verifyToken = require("./Middleware/verifyToken")
+const DonatationRouter = require("./Routes/donationRoutes")
 
 
 const app = express()
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 
 
 app.use("/api", SignupRouter)
+app.use("/api", DonatationRouter)
 
 
 app.listen(process.env.PORT, () => {

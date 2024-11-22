@@ -27,6 +27,7 @@ const handleError = (err) => {
 // Create a new signup
 const createSignup = async (req, res) => {
     try {
+        console.log(req.body)
         // Generate the next logId by finding the highest current logId and incrementing it
         const signupsCount = await SignUp.countDocuments();
         const logId = `SBVKS${(signupsCount + 1).toString().padStart(3, "0")}`;
@@ -102,7 +103,7 @@ const getAllSignups = async (req, res) => {
         res.status(200).json({
             success: true,
             message: "Record Found Successfully",
-            data: signups
+            data: signups.reverse()
         });
     } catch (err) {
         handleError(err);
